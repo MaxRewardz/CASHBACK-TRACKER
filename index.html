@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* --- LOGIN SCREEN --- */
+        /* --- SMART LOGIN SCREEN --- */
         #loginScreen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #000; z-index: 2000;
@@ -91,9 +91,8 @@
             position: relative; padding: 25px; display: flex; flex-direction: column; justify-content: space-between;
             box-shadow: 0 15px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); 
             transition: transform 0.3s ease, opacity 0.3s, border 0.3s; cursor: pointer; opacity: 0.5; transform: scale(0.92);
-            background: #222; overflow: hidden; z-index: 1; display: none; /* Hidden until filtered */
+            background: #222; overflow: hidden; z-index: 1; /* Note: display: none is removed from base class */
         }
-        .credit-card.visible { display: flex; }
         .credit-card.active-card { opacity: 1; transform: scale(1); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
 
         .card-bg-shine { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, transparent 40%); pointer-events: none; }
@@ -108,7 +107,7 @@
         .theme-sbi { background: linear-gradient(135deg, #0f172a 0%, #172554 100%); }
         .theme-amazon { background: linear-gradient(135deg, #1c1917 0%, #78350f 100%); }
         .theme-tata { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); border: 1px solid #a855f7 !important; }
-        .theme-icici { background: linear-gradient(135deg, #2c0b0e, #991b1b); }
+        .theme-icici { background: linear-gradient(135deg, #2c0b0e, #a83232); }
         .theme-simply { background: linear-gradient(135deg, #064e3b, #1a1a1a); }
         .theme-phonepe { background: linear-gradient(135deg, #240b36 0%, #000000 100%); border: 1px solid #673ab7 !important; }
 
@@ -157,16 +156,6 @@
         .modal.active { display: flex; }
         .modal-content { background: #1a1a1a; width: 100%; max-width: 500px; border-radius: 24px 24px 0 0; padding: 25px; border-top: 1px solid rgba(255,255,255,0.1); animation: slideUp 0.3s; max-height: 90vh; overflow-y: auto;}
         
-        /* MANAGE CARDS LIST */
-        .card-checkbox-list { display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; }
-        .card-option { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 10px; }
-        .card-option label { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer; width: 100%; }
-        .card-option input[type="checkbox"] { accent-color: var(--accent); transform: scale(1.2); }
-
-        /* USER SETUP POPUP */
-        #userModal { align-items: center !important; justify-content: center !important; z-index: 3000; }
-        .mobile-box { background: #1a1a1a; padding: 30px; border-radius: 20px; width: 90%; max-width: 350px; text-align: center; border: 1px solid var(--accent); box-shadow: 0 0 40px rgba(0,0,0,0.8); animation: fadeIn 0.5s; }
-
         .form-input { width: 100%; background: #000; border: 1px solid #333; color: white; padding: 14px; border-radius: 12px; font-size: 1rem; margin-bottom: 15px; outline: none; }
         .btn-action { width: 100%; padding: 15px; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; margin-top: 5px; }
         .presets-row { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px; scrollbar-width: none; }
@@ -176,6 +165,16 @@
         .stat-box { flex: 1; background: #222; padding: 15px; border-radius: 12px; text-align: center; border: 1px solid #333; }
         .stat-label { font-size: 0.7rem; color: #888; text-transform: uppercase; }
         .stat-val { font-size: 1.2rem; font-weight: bold; margin-top: 5px; }
+
+        /* CARD MANAGEMENT */
+        .card-checkbox-list { display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; }
+        .card-option { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 10px; }
+        .card-option label { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer; width: 100%; }
+        .card-option input[type="checkbox"] { accent-color: var(--accent); transform: scale(1.2); }
+
+        /* USER SETUP POPUP */
+        #userModal { align-items: center !important; justify-content: center !important; z-index: 3000; }
+        .mobile-box { background: #1a1a1a; padding: 30px; border-radius: 20px; width: 90%; max-width: 350px; text-align: center; border: 1px solid var(--accent); box-shadow: 0 0 40px rgba(0,0,0,0.8); animation: fadeIn 0.5s; }
 
         @keyframes slideUp { from {transform:translateY(100%);} to {transform:translateY(0);} }
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
@@ -189,7 +188,7 @@
         <div id="authLoader" class="loader"></div>
         <div id="authButtons" class="login-content">
             <h1 style="font-size:4rem; margin-bottom:10px;">💳</h1>
-            <h2 style="margin-bottom:10px;">CardMaster</h2>
+            <h2 style="margin-bottom:10px;">MAXREWARDZ</h2>
             <p style="color:#888; margin-bottom:30px; font-size:0.9rem;">Secure Cloud Sync</p>
             <button class="google-btn" onclick="loginWithGoogle()">
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20">
@@ -202,7 +201,7 @@
     <div class="modal" id="userModal" style="z-index: 3000; background: rgba(0,0,0,0.95);">
         <div class="mobile-box">
             <h3 style="margin-top:0;">Setup Profile</h3>
-            <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Link details for secure sync.</p>
+            <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Enter details to enable cloud sync.</p>
             <input type="text" id="setupName" class="form-input" placeholder="Your Name" style="text-align:center; font-size:1.1rem;">
             <input type="tel" id="setupMobile" class="form-input" placeholder="Mobile Number" maxlength="10" style="text-align:center; letter-spacing:2px; font-size:1.2rem;">
             <button class="btn-action" style="background:var(--accent); color:white;" onclick="saveUserDetails()">Start Tracking</button>
@@ -229,7 +228,7 @@
 
     <header>
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        <div class="app-name">CardMaster</div>
+        <div class="app-name">MAXREWARDZ</div>
         <div class="cycle-badge" id="headerCycle">...</div> 
     </header>
 
@@ -352,38 +351,33 @@
         'amazon': { name: "Amazon Pay", color: "#f59e0b", theme: "theme-amazon", billingDay: 1, waiverLimit: 0, anniversary: "2024-01-01", roundDown100: false, rules: [{ id: 'prime', label: 'Prime (5%)', rate: 0.05, cap: 999999999 }, { id: 'nonprime', label: 'Non-Prime (3%)', rate: 0.03, cap: 999999999 }, { id: 'other', label: 'Other (1%)', rate: 0.01, cap: 999999999 }] },
         'tata': { name: "Tata Neu Plus", color: "#8b5cf6", theme: "theme-tata", billingDay: 1, waiverLimit: 100000, anniversary: "2024-01-01", roundDown100: false, rules: [{ id: 'neu', label: 'Tata Neu (1.5%)', rate: 0.015, cap: 999999999 }, { id: 'other', label: 'Other (1%)', rate: 0.01, cap: 999999999 }, { id: 'upi', label: 'UPI (0.5%)', rate: 0.005, cap: 500 }] },
         'coral': { name: "ICICI Coral", color: "#ef4444", theme: "theme-icici", billingDay: 1, waiverLimit: 150000, anniversary: "2024-01-01", roundDown100: false, rules: [{ id: 'gen', label: 'Spends (0.5%)', rate: 0.005, cap: 999999999 }] },
-        'simply': { name: "Simply Save", color: "#10b981", theme: "theme-generic", billingDay: 1, waiverLimit: 100000, anniversary: "2024-01-01", roundDown100: false, rules: [{ id: 'dining', label: 'Dining (1.6%)', rate: 0.0166, cap: 999999999 }, { id: 'other', label: 'Other (0.16%)', rate: 0.0016, cap: 999999999 }] },
+        'simply': { name: "Simply Save", color: "#10b981", theme: "theme-generic", billingDay: 1, waiverLimit: 100000, anniversary: "2024-01-01", roundDown100: false, minTxn: 150, rules: [{ id: 'dining', label: 'Dining (1.6%)', rate: 0.0166, cap: 999999999 }, { id: 'other', label: 'Other (0.16%)', rate: 0.0016, cap: 999999999 }] },
         'sbi_phonepe': { name: "SBI PhonePe Black", color: "#6739b7", theme: "theme-phonepe", billingDay: 5, waiverLimit: 0, anniversary: "2024-01-01", roundDown100: true, minTxn: 100, rules: [ { id: 'phonepe_app', label: 'PhonePe App (10%)', rate: 0.10, cap: 2000 }, { id: 'online', label: 'Online (5%)', rate: 0.05, cap: 2000 }, { id: 'scanpay', label: 'Scan & Pay (1%)', rate: 0.01, cap: 999999999 }, { id: 'utility_other', label: 'Utility Non-App (1%)', rate: 0.01, cap: 500 }, { id: 'other', label: 'Other (1%)', rate: 0.01, cap: 2000 } ] }
     };
 
     // --- STATE ---
     let CARDS = JSON.parse(JSON.stringify(DEFAULT_CARDS));
     let transactions = [], presets = [], cardSettings = {};
-    let visibleCards = Object.keys(CARDS); // Default: All visible
+    let visibleCards = Object.keys(CARDS); 
     let activeCardId = 'airtel';
     let userData = null;
 
-    // --- AUTH & SYNC ---
+    // --- AUTH ---
     auth.onAuthStateChanged(user => {
-        const loader = document.getElementById('authLoader');
-        const buttons = document.getElementById('authButtons');
-        const screen = document.getElementById('loginScreen');
-        
         if(user) {
             currentUser = user;
-            screen.classList.add('hidden'); // Smooth fade out
+            document.getElementById('loginScreen').classList.add('hidden');
             loadUserData();
         } else {
             currentUser = null;
             document.getElementById('authLoader').style.display = 'none';
             document.getElementById('authButtons').style.display = 'block';
-            // Keep login screen visible
         }
     });
 
     function loginWithGoogle() {
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider).catch(err => alert("Login Failed: " + err.message));
+        auth.signInWithPopup(provider).catch(err => alert("Login Failed"));
     }
 
     function continueAsGuest() {
@@ -420,15 +414,13 @@
             userData = { name: data.name, mobile: data.mobile };
             
             if(userData.name) document.getElementById('sidebarUser').innerText = userData.name;
-            saveToLocal(); // Sync cloud to local
+            saveToLocal();
         } else {
-            // First time user -> Prompt Setup
             userData = { name: currentUser.displayName, mobile: null };
             document.getElementById('setupName').value = userData.name;
             document.getElementById('userModal').style.display = 'flex';
         }
         
-        document.getElementById('loginScreen').classList.add('hidden');
         applySettings();
         initSlider();
         refreshAll();
@@ -493,7 +485,7 @@
             const c = CARDS[key];
             if(c) {
                 swiper.innerHTML += `
-                <div class="credit-card ${c.theme} visible" id="card-${key}" onclick="selectCard('${key}', true)">
+                <div class="credit-card ${c.theme}" id="card-${key}" onclick="selectCard('${key}', true)">
                     <div class="card-bg-shine"></div>
                     <div class="card-top"><div class="chip"></div><div class="card-logo">${c.name}</div></div>
                     <div class="card-val"><span>Cashback</span><h2 id="val-${key}">₹0</h2></div>
@@ -506,11 +498,8 @@
         }, { root: swiper, threshold: 0.6 });
         document.querySelectorAll('.credit-card').forEach(c => observer.observe(c));
         
-        // Select first visible card if none active
         if(visibleCards.length > 0 && !visibleCards.includes(activeCardId)) activeCardId = visibleCards[0];
-        
-        // Wait for DOM update then trigger selection
-        setTimeout(() => selectCard(activeCardId, true), 200);
+        if(visibleCards.length > 0) setTimeout(() => selectCard(activeCardId, true), 100);
     }
 
     function selectCard(cId, scroll) {
@@ -555,6 +544,7 @@
         if(!start) { const c = getCycleDates(CARDS[cId].billingDay); start = c.start; end = c.end; }
 
         const filteredList = list.filter(t => { const d = new Date(t.date); return d >= start && d < end; });
+        
         const isRoundDown = CARDS[cId].roundDown100 || false;
         const minTxn = CARDS[cId].minTxn || 0;
 
@@ -573,7 +563,6 @@
                 earned = Math.max(0, Math.min(pot, rem));
                 sbiGlobal += earned;
             } 
-            // Fix: Compare with very large number instead of Infinity for JSON safety
             else if(rule.cap < 999999) { 
                 let cur = catTotals[rule.id] || 0;
                 let rem = rule.cap - cur;
@@ -611,14 +600,13 @@
         lDiv.innerHTML = '';
         c.rules.forEach(r => {
             const val = s.catTotals[r.id] || 0;
-            // Use 999999 check for "Unlimited" logic
             let pct = r.cap > 999999 ? 100 : Math.min((val/r.cap)*100, 100);
             let txt = r.cap > 999999 ? `₹${val.toFixed(0)}` : `₹${val.toFixed(0)} / ₹${r.cap}`;
             lDiv.innerHTML += `<div class="bar-item"><div class="bar-head"><span>${r.label}</span><span>${txt}</span></div><div class="track"><div class="fill" style="width:${pct}%"></div></div></div>`;
         });
         const hDiv = document.getElementById('trans-container');
         hDiv.innerHTML = '';
-        if(s.list.length === 0) hDiv.innerHTML = '<div style="text-align:center; padding:20px; opacity:0.4">No transactions</div>';
+        if(s.list.length === 0) hDiv.innerHTML = '<div style="text-align:center; opacity:0.4; padding:20px;">No transactions</div>';
         s.list.forEach(t => {
             const rule = c.rules.find(r=>r.id===t.cat)||{label:t.cat};
             hDiv.innerHTML += `<div class="trans-item"><div class="t-left"><h4>${t.desc}</h4><div class="t-cat">${rule.label} • ${new Date(t.date).toLocaleDateString()}</div></div><div class="t-right"><div>₹${t.amount}</div><div class="t-cb">+₹${t.cb.toFixed(2)}</div><div class="del-btn" onclick="delTrans(${t.id})">Delete</div></div></div>`;
@@ -638,7 +626,6 @@
     // --- ACTIONS & UTILS ---
     function checkAuthAndOpen() {
         if (!currentUser) {
-             // If Guest tries to add transaction, show Login Prompt
              document.getElementById('loginScreen').classList.remove('hidden');
              alert("Please login to add transactions!");
         } else {
@@ -693,7 +680,7 @@
     }
     function showToast(msg) { const t = document.getElementById('toast'); document.getElementById('toastMsg').innerText = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 3000); }
     
-    // --- MANAGE CARDS (NEW) ---
+    // --- MANAGE CARDS ---
     function openManageCards() {
         toggleMenu();
         document.getElementById('manageCardsModal').classList.add('active');
